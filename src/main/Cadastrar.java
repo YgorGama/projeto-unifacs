@@ -1,30 +1,27 @@
 package main;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import Products.Product;
 
 public class Cadastrar {
 	public static void cadastrar(List<Product> products){
+		Random random = new Random();
 		Scanner snc = new Scanner(System.in);
 		int id;
-		System.out.print("Coloque aqui o id do produto: ");
-		String texto = snc.nextLine();
+		boolean check = false;
+		do {
+				id = random.nextInt(1000);
+				for(Product product : products) {
+					if (product.getId() == id) {
+						check = true;
+					}
+				}
+		}while(check != false);
 		
-		try{
-			id = Integer.valueOf(texto);
-		}catch(Exception err) {
-			System.err.println("Ocorreu um erro: " + err);
-			return;
-		}
-		
-		for (Product product : products) {
-			if (product.getId() == id) {
-				System.err.println("O id desse produto já consta no sistema, por favor insira um id diferente");
-				return;
-			}
-		}
+		String texto;
 
 		System.out.print("Coloque aqui o nome do produto: ");
 		String name = snc.nextLine();

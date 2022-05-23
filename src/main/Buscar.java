@@ -21,13 +21,13 @@ public class Buscar {
 		}
 		
 		for(Product product : products) {
-			if(product.getId() != id) {
-				System.err.println("Id não encontrado");
+			if(id == product.getId()) {
+				product.imprimirAll();
 				return;
 			}
 		}
-		
-		products.get(id).imprimirAll();
 
+		System.err.println("Id não encotrado");
+		return;
 	}
 }

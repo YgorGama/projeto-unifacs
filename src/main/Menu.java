@@ -41,6 +41,6 @@ public class Menu {
 				System.out.println("Coloque uma opção válida!!!");
 				break;
 			}
-		} while (i != 5);
+		} while (i != 4);
 	}
 }
