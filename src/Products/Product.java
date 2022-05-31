@@ -61,13 +61,15 @@ public class Product {
 				+ price + "]";
 	}
 	
+	//Imprime na tela 3 dados do produto
 	public void imprimir() {
 		System.out.println("Nome: " + name);
 		System.out.println("Tipo do produto: " + productType);
-		System.out.println("Price: " + price);
+		System.out.println("Id: " + id);
 		System.out.println();
 	}
 	
+	//Imprime na tela todos os dados do produto
 	public void imprimirAll() {
 		System.out.println("Id: " + id);
 		System.out.println("Nome: " + name);
