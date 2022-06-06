@@ -1,9 +1,11 @@
-package main;
+package view;
 
 import java.util.List;
+import java.util.ResourceBundle.Control;
 import java.util.Scanner;
 
 import Products.Product;
+import controller.Controller;
 
 public class Menu {
 	public static void menu(List<Product> products) {
@@ -15,32 +17,42 @@ public class Menu {
 			System.out.println("1 - Cadastrar");
 			System.out.println("2 - Listar");
 			System.out.println("3 - Buscar");
-			System.out.println("4 - Sair");
+			System.out.println("4 - Remover");
+			System.out.println("5 - Sair");
 			String texto = snc.nextLine();
+			
+			//Confere se o valor colocado é mesmo um inteiro
 			try{
 				i = Integer.valueOf(texto);
 			}catch(Exception err) {
 				System.err.println("Ocorreu um erro: " + err);
 			}			
 			System.out.println();
-
+			
+			//Switch Case com todos os métodos
 			switch (i) {
 			case 1:
-				Cadastrar.cadastrar(products);
+				Controller.cadastrar(products);
 				break;
 			case 2:
-				Imprimir.imprimirLista(products);
+				Controller.imprimirLista(products);
 				break;
 			case 3:
-				Buscar.buscar(products);
+				Controller.buscar(products);
 				break;
 			case 4:
+				Controller.remove(products);
+				break;
+			case 5:
 				System.out.println("Saindo...");
 				break;
 			default:
 				System.out.println("Coloque uma opção válida!!!");
+				System.exit(5);
 				break;
 			}
-		} while (i != 4);
+		} while (i != 5);
+
 	}
+	
 }
